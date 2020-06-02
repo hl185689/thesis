@@ -3,9 +3,13 @@ library(xgboost)
 library(tidyverse)
 
 data.file <- "/data/20200406_full_append.csv"
+logit.vars.file <- "/data/logit_variables.csv"
 
 d <- read_csv(paste0(here(),data.file)) %>% 
   janitor::clean_names()
+
+logit.vars <- read_csv(paste0(here(),logit.vars.file)) %>% 
+  mutate(clean_var = janitor::make_clean_names(varname))
 
 # Hmisc::describe(d)
 
@@ -78,7 +82,30 @@ sample.idx <- c(sample.idx,
                        size=9*length(sample.idx),
                        replace = F))
 
-small.d <- d[sample.idx,vars.to.include]
+
+#small.d <- d[sample.idx,vars.to.include]
+small.d <- d[sample.idx,c(logit.vars %>% pull(clean_var),
+                          "ce_yn","fid")]
+
+if(T){
+  # Changes to use hannah's variables. 
+  small.d <- small.d %>% 
+    mutate(vb_voterbase_registration_status = if_else(
+      vb_voterbase_registration_status == "Registered",
+      1,
+      0),
+      vb_voterbase_gender = if_else(
+        vb_voterbase_gender == "Male",
+      1,
+      0),
+      vb_voterbase_marital_status = if_else(
+        vb_voterbase_marital_status == "Married",
+        1,
+        0)) %>% 
+    rename(vb_voterbase_male = vb_voterbase_gender,
+           vb_voterbase_married = vb_voterbase_marital_status)
+  
+}
 
 # Let's split into test and training sets. Response has 468 rout of 181K are yes
 # (0.3%), so let's make a new data set with 9 No for every yes. 
@@ -102,8 +129,10 @@ data.test.small <- small.d %>%
   slice(test.idx) %>% 
   data.frame
 
+test.resp <- as.numeric(small.d %>% slice(test.idx) %>% pull(ce_yn))
+
 data.test.small <- xgb.DMatrix(as.matrix(data.test.small),
-                               label=as.numeric(small.d %>% slice(test.idx) %>% pull(ce_yn)))
+                               label=test.resp)
 
 # Whew, that took a while. Now modeling.
 
@@ -115,13 +144,20 @@ xgb.1 <- xgboost(
   objective = "binary:logistic"
 )
 
+xgb.plot.importance(xgb.1)
+
 
 pred <- predict(xgb.1,data.test.small)
-err <- mean(as.numeric(pred > 0.5) != test$label) 
+err <- mean(as.numeric(pred > 0.5) != test.resp) 
 print(paste("test-error=", err))
+# Not amazing performance. Worse than guessing "no" 
+
 
 table(pred,small.d %>% slice(test.idx) %>% pull(ce_yn))
 
-
+# trying for some plotting
+imp_mat <- xgb.importance(colnames(data.train.small),
+                          model=xgb.1)
+xgb.plot.importance(imp_mat)
 
 

@@ -1,0 +1,14 @@
+varnum,varname,comment
+15,SUM_GISAcr,GIS acres
+27,SUM_TotalV,total value
+42,vb.voterbase_registration_status,"""registered - 1"" or ""unregistered - 2"""
+44,vb.voterbase_age,integer
+45,vb.voterbase_gender,"""female - 1"", ""male - 2"", ""unknown - 3"""
+47,vb.voterbase_marital_status,"""married - 1"", ""unknown - 2"", ""unmarried - 3"""
+141,xpg.length_of_residence,number of years in that residence
+421,ts.tsmart_children_present_score,Predicts the likelihood that a voter lives in a household with children. Scores are expressed from 0-100. A higher score represents a higher probability that a person lives in a household with children. See the Predictive Model Score Release Notes for more details.
+422,ts.tsmart_college_graduate_score,Predicts the likelihood that an individual has attained a college-level or higher education. Scores are expressed from 0-100. A higher score represents a higher probability that a person's education level is college graduate or higher. See the Predictive Model Score Release Notes for more details.
+423,ts.tsmart_high_school_only_score,Predicts the likelihood that an individual has not attained formal education beyond high school. Scores are expressed from 0-100. A higher score represents a higher probability that a person's education level is high school or lower. See the Predictive Model Score Release Notes for more details.
+424,ts.tsmart_income_rank_score,"Predicts the likelihood that an individual has an income over $100,000. Scores are expressed from 0-100. A higher score represents a higher probability that a person would self-report income greater than $100,000. See the Predictive Model Score Release Notes for more details."
+445,predictwise.environmentalism_score,"The Predictwise environmentalism score measures the probability that an individual supports protecting the environment. The model was built using questions about attitudes  towards renewable energy, climate change, human behavior in climate change, and oil and gas exploration. The score ranges from 0-100, with 0 being no support for protecting the environment, and 100 being full support for protecting the environment. See the Predictive Model Score Release Notes for more details."
+410,ts.tsmart_partisan_score,Predicts the likelihood that an individual supports the Democratic Party.  Scores are expressed from 0-100.  A higher score predicts a higher likelihood of support. See the Predictive Model Score Release Notes for more details.
