@@ -1,0 +1,462 @@
+var_name,num_null,percent_null,var_dd
+key,0,0%,
+fid,0,0%,
+owner_name,0,0%,
+is,0,0%,
+first_name,0,0%,
+fn_drop_comma,0,0%,
+real_first,0,0%,
+old_keyballs,0,0%,
+owner_addre,0,0%,
+owner_add_1,180578,100%,
+owner_add_2,180933,100%,
+owner_city,0,0%,
+owner_state,0,0%,
+owner_zip_co,0,0%,
+sum_gis_acr,0,0%,GIS acres
+sum_contin,0,0%,continuous crop acres
+sum_fallow,0,0%,fallow acres
+sum_farmsi,0,0%,farmsite acres
+sum_forest,0,0%,forest acres
+sum_grazin,0,0%,Grazing acres
+sum_wild_ha,0,0%,Wild Hay acres
+sum_irriga,0,0%,Irrigated acres
+sum_non_qua,0,0%,NonQual acres
+sum_total_a,0,0%,total acres
+sum_total_b,0,0%,total building value
+sum_total_l,0,0%,total land value
+sum_total_v,0,0%,total value
+sum_easeme,0,0%,easement acres
+ce_yn,0,0%,
+voterbase_id,0,0%,Unique identifier for VoterBase records
+vb_tsmart_version_number,0,0%,Flag that denotes whether or not the record can be used when building Commercial Models
+vb_tsmart_first_name,0,0%,ContributorBase record was found for this individual
+vb_tsmart_last_name,0,0%,FECBase record was found for this individual
+vb_tsmart_full_address,0,0%,Group synthetics record was found for this individual
+vb_tsmart_city,1,0%,Household composition record was found for this individual
+vb_tsmart_state,0,0%,IntelliBase record was found for this individual
+vb_tsmart_zip,0,0%,Vote History Synthetics record was found for this individual
+vb_tsmart_zip4,9,0%,Experian Gold record was found for this individual
+vb_tsmart_street_name,0,0%,Experian Behavior Bank record was found for this individual
+vb_tsmart_address_usps_address_code,1455,1%,TargetSmart Scores record was found for this individual
+vb_tsmart_address_dpv_footnote,343,0%,"Indicates how the VoterBase record was matched to the IntelliBase consumer record (household, individual)"
+vb_voterbase_registration_status,0,0%,"Indicates how the VoterBase record was matched to the Experian Gold consumer record (household, individual)"
+vb_voterbase_dob,2386,1%,Indicates that the record has Experian Gold data populated at the household level that is sourced from the End Date Record segment. This field will be blank for records that do not match to the Experian Gold segment at the household level.
+vb_voterbase_age,1366,1%,Indicates that the record has Experian Gold data populated at the individual level that is sourced from the End Date Record segment. This field will be blank for records that do not match to the Experian Gold segment at the individual level.
+vb_voterbase_gender,0,0%,Unique household ID for VoterBase based on the TargetSmart Address
+vb_voterbase_race,0,0%,Unique individual ID for SmartVAN
+vb_voterbase_marital_status,0,0%,"County level voter registration ID.  Some counties in some states keep a voter registration ID.  Where TargetSmart has access to these county level IDs, this field will contain them."
+vb_vf_voter_status,19816,11%,"State level Government identifier from the source state voter file, unprocessed"
+vb_vf_party,19816,11%,ExactTrack Person ID
+vb_vf_race,19816,11%,ExactTrack Address ID
+vb_vf_cd,19816,11%,Date of the first time this voterID has been seen in this state by TargetSmart as compared to the previous state voter file
+vb_vf_sd,19816,11%,Date file is received from the state.  Most recent registration date on the file.
+vb_vf_hd,19816,11%,"TargetSmart voter file build version number for the most recently released file, ie.- FL1203, CA1303, MN1402, etc."
+vb_vf_precinct_id,19816,11%,Date state voter file was processed by TargetSmart
+vb_vf_precinct_name,19816,11%,Parsed First Name
+vb_tsmart_county_name,286,0%,Parsed Middle Name
+vb_tsmart_cd,297,0%,Parsed Last Name
+vb_tsmart_sd,3313,2%,"Parsed Name Suffix (Jr, Sr, I, II, III, etc.)"
+vb_tsmart_hd,3313,2%,"TargetSmart cleaned, updated full address line"
+vb_tsmart_precinct_name,3391,2%,"TargetSmart cleaned, updated full address city"
+vb_reg_latitude,1,0%,"TargetSmart cleaned, updated full address state"
+vb_reg_longitude,1,0%,"TargetSmart cleaned, updated full address zip code"
+vb_reg_census_id,1,0%,"TargetSmart cleaned, updated full address zip code 4-digit extension"
+vb_reg_dma,1,0%,Parsed street/house number of updated address
+vb_reg_dma_name,1,0%,Parsed pre-direction indicator of updated address
+vb_vf_absentee_status,35667,20%,Parsed street name of updated address
+vb_voterbase_general_votes,19816,11%,"Parsed street type/suffix of updated address (DR, AVE, RD, etc.)"
+vb_voterbase_primary_votes,19816,11%,Parsed post-direction indicator of updated address
+vb_voterbase_voter_score,0,0%,"Parsed unit designator of updated address (Apt, Unit, Ste, etc.)"
+vb_vf_reg_address_1,19816,11%,Parsed unit number of updated address
+vb_recession_sensitivity_ranking,28204,16%,"Last verified occupancy date.  Used in conjunction with Values from the vb.tsmart_address_improvement field, the TargetSmart Effective Date can identify the move date for individuals that are indicated as movers."
+vb_recession_sensitivity_decile,28204,16%,Type of building derived from various USPS codes
+vb_vehicle_value_decile,15629,9%,A code that corresponds to households served by an individual mail carrier within a 5-digit U.S. zip-code
+vb_personal_voice_social_networker_demi_decile,15717,9%,Delivery Point Validation (DPV) Confirmation Indicator is the primary method used by the USPS to determine whether an address was considered deliverable or undeliverable
+vb_professional_social_networker_demi_decile,15717,9%,"Footnotes Reporting CASS Zip+4 Certification, DPV Validation Observations, and CMRA Observations"
+vb_purely_social_networker_demi_decile,15717,9%,"NCOA-sourced flag indicating move type for Individual, Family and Business."
+vb_social_networker_demi_decile,12719,7%,NCOA Codes indicating information about the NCOA match.
+gsyn_synth_hh_sum_total_votes_cast_count,0,0%,USPS flag indicating if the address has been reported vacant for more than 90 days.
+gsyn_synth_hh_sum_dem_primary_votes_cast_count,0,0%,Change of address source.
+gsyn_synth_hh_sum_rep_primary_votes_cast_count,0,0%,Indicates whether the individual is registered to vote or part of the unregistered voting age population
+gsyn_synth_hh_sum_primary_votes_cast_count,0,0%,"Multi-sourced date of birth (voter file, or commercially-appended)"
+gsyn_synth_hh_distinct_last_names_in_hh,0,0%,"Indicates the individual's age, if available, and calculated from the VoterBase Date of Birth"
+gsyn_synth_hh_distinct_races_in_hh,0,0%,Date of Birth sourced from commercial sources only
+gsyn_synth_hh_total_votes_per_person,0,0%,"Multi-sourced gender code (voter file, or commercially-appended)"
+gsyn_synth_hh_total_primary_votes_person,0,0%,"Multi-sourced race code (voter file, or commercially-appended)"
+gsyn_synth_zip5_sum_zip5_democrat,486,0%,"Indicates whether the individual is married or unmarried based on gender, name, and age within a household."
+gsyn_synth_zip5_sum_zip5_republican,8,0%,Indicates whether voter is considered active or inactive by the Secretary of State or State Board of Elections.
+gsyn_synth_zip5_pct_of_dems_per_reg_count,486,0%,Registration Date as indicated on the current voter file.  Some states modify this date as registration info is updated.  Also see vb.vf_earliest_registration_date.
+gsyn_synth_county_sum_fec_contribution_count_republican,19845,11%,Earliest known registration date associated with the SoS voter ID. This is applicable for the current registration state.
+gsyn_synth_county_sum_fec_contribution_count_democrat,20245,11%,Party Affiliation of the voter
+enh_addr_size,0,0%,Voter file-sourced race
+enh_addr_code,0,0%,Voter file-sourced date of birth
+enh_tsmart_enhanced_hh_size,0,0%,Voter file-sourced year of birth
+enh_tsmart_enhanced_hh_code,0,0%,Voter file-sourced age
+enh_tsmart_enhanced_reg_code,0,0%,State abbreviation indicating the state where the voter file was acquired
+enh_tsmart_enhanced_hh_num_males,0,0%,3-digit County FIPS code
+enh_tsmart_enhanced_hh_num_females,0,0%,Name of County
+enh_tsmart_enhanced_hh_num_registered,0,0%,Congressional district FROM SOURCE
+enh_tsmart_enhanced_hh_num_unregistered,0,0%,State Senate District FROM SOURCE
+enh_tsmart_enhanced_hh_num_dems,0,0%,State House District FROM SOURCE
+enh_tsmart_enhanced_hh_num_reps,0,0%,Township name FROM SOURCE
+enh_tsmart_enhanced_hh_num_others,0,0%,Ward name FROM SOURCE
+vhsyn_vf_g2018_synthetic,19816,11%,Precinct code FROM SOURCE
+vhsyn_vf_g2016_synthetic,19816,11%,"Precinct name, long description FROM SOURCE"
+vhsyn_vf_g2014_synthetic,19816,11%,"Code that makes a precinct unique for that state and nationally across all 50 states. Consists of State, County, and Precinct ID/Name"
+vhsyn_vf_g2012_synthetic,19816,11%,County Council Districts FROM SOURCE
+vhsyn_vf_g2010_synthetic,19816,11%,City Council Districts FROM SOURCE
+vhsyn_vf_g2008_synthetic,19816,11%,Municipal Districts FROM SOURCE
+vhsyn_vf_g2006_synthetic,19816,11%,School Districts FROM SOURCE
+vhsyn_vf_g2004_synthetic,19816,11%,Judicial Districts FROM SOURCE
+vhsyn_vf_g2002_synthetic,19816,11%,3-digit County FIPS code for current Address
+vhsyn_vf_g2000_synthetic,19816,11%,"Name of County for current Address, created from voter file source districts"
+vhsyn_vf_p2018_synthetic,19816,11%,"Congressional District for current Address, created from voter file source districts"
+vhsyn_vf_p2016_synthetic,19816,11%,"State Senate district for current Address, created from voter file source districts"
+vhsyn_vf_p2014_synthetic,19816,11%,"State House district for current Address, created from voter file source districts"
+vhsyn_vf_p2012_synthetic,19816,11%,"Township name for current Address, created from voter file source districts"
+vhsyn_vf_p2010_synthetic,19816,11%,"Ward name for current Address, created from voter file source districts"
+vhsyn_vf_p2008_synthetic,19816,11%,"Precinct code for current Address, created from voter file source districts"
+vhsyn_vf_p2006_synthetic,19816,11%,"Precinct name, long description for current Address, created from voter file source districts"
+vhsyn_vf_p2004_synthetic,19816,11%,"County Council Districts for current Address, created from voter file source districts"
+vhsyn_vf_p2002_synthetic,19816,11%,"City Council Districts for current Address, created from voter file source districts"
+vhsyn_vf_p2000_synthetic,19816,11%,"Municipal Districts for current Address, created from voter file source districts"
+vhsyn_vf_pp2016_synthetic,19816,11%,"School Districts for current Address, created from voter file source districts"
+vhsyn_vf_pp2012_synthetic,19816,11%,"Judicial Districts for current Address, created from voter file source districts"
+vhsyn_vf_pp2008_synthetic,19816,11%,Latitude of current Address
+vhsyn_vf_pp2004_synthetic,19816,11%,Longitude of current Address
+vhsyn_vf_pp2000_synthetic,19816,11%,Indicates level at which the current Address was geo-coded
+vhsyn_vf_g2017_synthetic,19816,11%,"15-digit FIPS code geography of current Address.  U.S. Census Block Code consisting of 2-digit state code, 3-digit county code, 6-digit tract code, and 4-digit block code."
+vhsyn_vf_g2015_synthetic,19816,11%,Designated Market Area (DMA) code based on the current Address
+vhsyn_vf_g2013_synthetic,19816,11%,Descriptive version of Designated Market Area (DMA) geography based on current Address
+vhsyn_vf_g2011_synthetic,19816,11%,FIPS state code combined with FIPS place code for current Address
+vhsyn_vf_g2009_synthetic,19816,11%,Descriptive version of geography based on current Address
+vhsyn_vf_g2007_synthetic,19816,11%,Latitude of Registration Address
+vhsyn_vf_g2005_synthetic,19816,11%,Longitude of Registration Address
+vhsyn_vf_g2003_synthetic,19816,11%,Indicates level at which the Registration Address was geo-coded
+vhsyn_vf_g2001_synthetic,19816,11%,"15-digit FIPS code geography of Registration Address. U.S. Census Block Code consisting of 2-digit state code, 3-digit county code, 6-digit tract code, and 4-digit block code."
+xpg_ind_lvl_occupation_code,27458,15%,Designated Market Area (DMA) code based on the Registration Address
+xpg_ind_lvl_business_owner,27458,15%,Descriptive version of Designated Market Area (DMA) geography based on Registration Address
+xpg_homeowner_probability_model,20647,11%,FIPS state code combined with FIPS place code for Registration Address
+xpg_home_business,20647,11%,Descriptive version of geography based on Registration Address
+xpg_length_of_residence,20647,11%,Code indicating the quality of the updated address based on the evaluation of the different address result codes output by CASS/DPV.
+xpg_number_of_children_in_living_unit,20647,11%,"Code indicating the improvement made to the address.  This field is the best option to use to identify movers. Values 1 and 2 indicate the movers identified by NCOA.  Values 5 and 6 also indicate movers, but the person has no new address information. And values 7 and 8 are considered ‘probable movers’."
+xpg_mor_bank_upscale_merchandise_buyer,20647,11%,Type of building derived from various USPS codes
+xpg_mor_bank_male_merchandise_buyer,20647,11%,Indicates how far (in miles) the voter moved from their Registration Address to their current Address
+xpg_mor_bank_female_merchandise_buyer,20647,11%,"Indicates the direction (N,S,E,W) the voter moved from their Registration Address to their current Address"
+xpg_mor_bank_crafts_hobby_merchandise_buyer,20647,11%,Indicates the type of mover status found for a registered individual
+xpg_mor_bank_gardening_farming_buyer,20647,11%,Indicates the registration status for individuals flagged as movers
+xpg_mor_bank_book_buyer,20647,11%,Indicates source of voterbase_dob field
+xpg_mor_bank_collect_special_foods_buyer,20647,11%,Indicates source of voterbase_gender field
+xpg_mor_bank_gifts_and_gadgets_buyer,20647,11%,Indicates source of voterbase_race field
+xpg_mor_bank_general_merchandise_buyer,20647,11%,Internal field to note the source of TargetSmart's unregistered voting age population data (VAPs)
+xpg_mor_bank_family_and_general_magazine,20647,11%,Indicates whether the voter was identified as deceased by SSA
+xpg_mor_bank_female_oriented_magazine,20647,11%,Vendor sourced deceased date in YYYYMMDD format.  Some records flagged as deceased will not have deceased date information if they were flagged before TargetSmart began collecting the deceased date.
+xpg_mor_bank_male_sports_magazine,20647,11%,Indicates whether or not the TargetSmart address is likely deliverable.
+xpg_mor_bank_religious_magazine,20647,11%,Indicates that the source voterfile record has no registration address information.
+xpg_mor_bank_gardening_farming_magazine,20647,11%,Indicates that voter has voted absentee in a past election
+xpg_mor_bank_culinary_interests_magazine,20647,11%,Indicates that voter has voted early in a past election
+xpg_mor_bank_health_and_fitness_magazine,20647,11%,Indicates that voter has registered with the state as a permanent absentee/early voter
+xpg_mor_bank_do_it_yourselfers,20647,11%,Indicates the number of elections a voter has voted in within  all available general elections
+xpg_mor_bank_news_and_financial,20647,11%,Indicates the number of elections a voter has voted in within  all available primary elections
+xpg_mor_bank_photography,20647,11%,Roll-up grouping of voters based on prior election turnout
+xpg_mor_bank_opportunity_seekers_and_ce,20647,11%,Voting History
+xpg_mor_bank_religious_contributor,20647,11%,Voting History
+xpg_mor_bank_political_contributor,20647,11%,Voting History
+xpg_mor_bank_health_and_institution_contributor,20647,11%,Voting History
+xpg_mor_bank_general_contributor,20647,11%,Voting History
+xpg_mor_bank_odds_and_ends,20647,11%,Voting History
+xpg_mortgage_home_purchase_home_purchase_price,20647,11%,Voting History
+xpg_property_realty_home_year_built,20647,11%,Voting History
+xpg_property_realty_home_land_value,20647,11%,Voting History
+xpg_property_realty_property_indicator,20647,11%,Voting History
+xpg_property_realty_year_built_confidence,20647,11%,Voting History
+xpg_estimated_current_home_value,20647,11%,Voting History
+xpg_green_aware,20647,11%,Voting History
+xpg_greenaware_tiers,20647,11%,Voting History
+xpg_auto_in_the_market_new,21353,12%,Voting History
+xpg_auto_in_the_market_used,21353,12%,Voting History
+xpg_auto_in_the_market_used_0_5_vehicle,21353,12%,Voting History
+xpg_auto_in_the_market_used_6plus_vehicle,21353,12%,Voting History
+xpg_core_based_statistical_area_type,21177,12%,Voting History
+xpg_property_realty_total_tax,20647,11%,Voting History
+xpg_property_realty_home_land_square_footage,20647,11%,Voting History
+xpg_mortgage_home_purchase_type_of_purchase,20920,12%,Voting History
+xpg_mortgage_home_purchase_mortgage_amount,20647,11%,Party Voted
+xpg_mortgage_home_purchase_mortgage_term_in_months,20647,11%,Voting History
+xpg_mortgage_home_purchase_down_payment_pct,20647,11%,Party Voted
+xpg_mortgage_home_purchase_equity_amount_in_thousands,20647,11%,Voting History
+xpg_mortgage_home_purchase_equity_term,20647,11%,Party Voted
+xpg_mortgage_home_purchase_refinance_amount,20647,11%,Voting History
+xpg_mortgage_home_purchase_refinance_term,20647,11%,Party Voted
+xpg_investment_property_purchase_amount,20647,11%,Voting History
+xpg_investment_property_mortgage_amount,20647,11%,Party Voted
+xpg_investment_property_mortgage_term,20647,11%,Vote History
+xpg_investment_property_equity_amount,20647,11%,Party Voted
+xpg_investment_property_equity_term,20647,11%,Voting History
+xpg_investment_property_refinance_amount_in_thousands,20647,11%,Party Voted
+xpg_investment_property_refinance_term,20647,11%,Voting History
+xpg_investment_property_additional_investment_flag,20647,11%,Party Voted
+xpg_tran_24_month_credit_purchase,20647,11%,Voting History
+xpg_tran_ltd_purchase_frequency,20647,11%,Party Voted
+xpg_online_accessories,23678,13%,Voting History
+xpg_online_active_outdoors_hard_goods,23678,13%,Party Voted
+xpg_online_active_outdoors_soft_goods,23678,13%,Voting History
+xpg_online_apparel,23678,13%,Party Voted
+xpg_online_computers,23678,13%,Voting History
+xpg_online_electronics_and_gadgets,23678,13%,Party Voted
+xpg_online_food_and_beverages,23678,13%,Voting History
+xpg_online_furniture,23678,13%,Party Voted
+xpg_online_general_misc,23678,13%,Voting History
+xpg_online_hobbies_and_entertainment,23678,13%,Party Voted
+xpg_online_home_decor,23678,13%,Voting History
+xpg_online_home_domestics,23678,13%,Party Voted
+xpg_online_home_maintenance,23678,13%,Voting History
+xpg_online_home_office,23678,13%,Party Voted
+xpg_online_kitchen,23678,13%,Voting History
+xpg_online_lawn_and_garden,23678,13%,Party Voted
+xpg_online_outdoor_living,23678,13%,Voting History
+xpg_online_overall,23678,13%,Party Voted
+xpg_online_personal_health,23678,13%,Voting History
+xpg_online_pets,23678,13%,Party Voted
+xpg_online_seasonal_products,23678,13%,Voting History
+xpg_online_shoes,23678,13%,Party Voted
+xpg_online_tabletop_and_dining,23678,13%,Voting History
+xpg_online_tools_and_automotive,23678,13%,Party Voted
+xpg_online_toys,23678,13%,Voting History
+xpg_online_travel,23678,13%,Voting History
+xpg_retail_accessories,23678,13%,Voting History
+xpg_retail_active_outdoors_hard_goods,23678,13%,Voting History
+xpg_retail_active_outdoors_soft_goods,23678,13%,Voting History
+xpg_retail_apparel,23678,13%,Voting History
+xpg_retail_computers,23678,13%,Voting History
+xpg_retail_electronics_and_gadgets,23678,13%,Voting History
+xpg_retail_food_and_beverages,23678,13%,Voting History
+xpg_retail_furniture,23678,13%,Voting History
+xpg_retail_general_misc,23678,13%,Voting History
+xpg_retail_hobbies_and_entertainment,23678,13%,Voting History
+xpg_retail_home_decor,23678,13%,Voting History
+xpg_retail_home_domestics,23678,13%,Voting History
+xpg_retail_home_maintenance,23678,13%,Voting History
+xpg_retail_home_office,23678,13%,Voting History
+xpg_retail_kitchen,23678,13%,Voting History
+xpg_retail_lawn_and_garden,23678,13%,Voting History
+xpg_retail_outdoor_living,23678,13%,Voting History
+xpg_retail_overall,23678,13%,Voting History
+xpg_retail_personal_health,23678,13%,Voting History
+xpg_retail_pets,23678,13%,Voting History
+xpg_retail_seasonal_products,23678,13%,Party Voted
+xpg_retail_shoes,23678,13%,Voting History
+xpg_retail_tabletop_and_dining,23678,13%,Party Voted
+xpg_retail_tools_and_automotive,23678,13%,Voting History
+xpg_retail_toys,23678,13%,Party Voted
+xpg_retail_travel,23678,13%,Voting History
+xpg_tt_buy_american,20647,11%,Party Voted
+xpg_tt_show_me_the_money,20647,11%,Voting History
+xpg_tt_go_with_the_flow,20647,11%,Party Voted
+xpg_tt_no_time_like_present,20647,11%,Voting History
+xpg_tt_never_show_up_empty_handed,20647,11%,Party Voted
+xpg_tt_on_the_road_again,20647,11%,"Unparsed address line 1 for the Voter Registration Address. May also include the address line 2 data (Apt, Unit, Suite, etc.)."
+xpg_tt_look_at_me_now,20647,11%,"Unparsed address line 2 for the Voter Registration Address (Apt, Unit, Suite, etc.). If blank, this data will be found in the Voter Registration Address 1 field."
+xpg_tt_stop_and_smell_the_roses,20647,11%,City of Voter Registration
+xpg_tt_work_hard_play_hard,20647,11%,State of Voter Registration
+xpg_tt_penny_saved_a_penny_earned,20647,11%,Zip Code of Voter Registration Address
+xpg_tt_its_all_in_the_name,20647,11%,Voter Registration Address 4-digit Zip Code extension
+xpg_truetouch_broadcast_cable_tv,20647,11%,Full Voter Registration Address after CASS processing
+xpg_truetouch_direct_mail,20647,11%,Voter Registration Address city after CASS processing
+xpg_truetouch_email_engagement,20647,11%,Voter Registration Address state after CASS processing
+xpg_truetouch_internet_radio,20647,11%,Voter Registration Address Zip Code after CASS processing
+xpg_truetouch_mobile_display,20647,11%,Voter Registration Address 4-digit Zip Code extension assigned during CASS processing
+xpg_truetouch_mobile_video,20647,11%,Parsed street/house number of Voter Registration Address after CASS processing
+xpg_truetouch_online_video,20647,11%,Parsed pre-direction indicator of Voter Registration Address after CASS processing
+xpg_truetouch_online_display,20647,11%,Parsed street name of Voter Registration Address after CASS processing
+xpg_truetouch_online_streaming_tv,20647,11%,"Parsed street type/suffix of Voter Registration Address after CASS processing (DR, AVE, RD, etc.)"
+xpg_truetouch_satellite_radio,20647,11%,Parsed post-direction indicator of Voter Registration Address after CASS processing
+xpg_truetouch_brick_mortar,20647,11%,"Parsed unit designator of Voter Registration Address after CASS processing (Apt, Unit, Ste, etc.)"
+xpg_truetouch_online_mid_high,20647,11%,Parsed unit number of Voter Registration Address after CASS processing
+xpg_truetouch_e_tailer,20647,11%,Type of building derived from various USPS codes
+xpg_truetouch_online_discount,20647,11%,A code that corresponds to households served by an individual mail carrier within a 5-digit U.S. zip-code
+xpg_truetouch_online_bid_mrktplc,20647,11%,Delivery Point Validation (DPV) Confirmation Indicator is the primary method used by the USPS to determine whether an address was considered deliverable or undeliverable
+xpg_act_int_amusement_park_visitors,20647,11%,"Footnotes Reporting CASS Zip+4 Certification, DPV Validation Observations, and CMRA Observations"
+xpg_act_int_arts_and_crafts,20647,11%,"Unparsed address line for Voter File Mailing Address, empty if same as Registration Address"
+xpg_act_int_attend_order_educational_programs,20647,11%,"City of Voter File Mailing Address, empty if same as Registration Address"
+xpg_act_int_audio_book_listener,20647,11%,"State of Voter File Mailing Address, empty if same as Registration Address"
+xpg_act_int_avid_runners,20647,11%,"Zip Code of Voter File Mailing Address, empty if same as Registration Address"
+xpg_act_int_boating,20647,11%,Voter File Mailing Address 4-digit Zip Code extension
+xpg_act_int_book_reader,20647,11%,Parsed street/house number of Voter File Mailing Address
+xpg_act_int_canoeing_kayaking,20647,11%,Parsed pre-direction indicator of Voter File Mailing Address
+xpg_act_int_casino_gambling,21684,12%,Parsed street name of Voter File Mailing Address
+xpg_act_int_cat_owners,20647,11%,"Parsed street type/suffix of Voter File Mailing Address (DR, AVE, RD, etc.)"
+xpg_act_int_coffee_connoisseurs,20647,11%,Parsed post-direction indicator of Voter File Mailing Address
+xpg_act_int_cultural_arts,20647,11%,"Parsed unit designator of Voter File Mailing Address (Apt, Unit, Ste, etc.)"
+xpg_act_int_digital_magazine_newspapers_buyers,20647,11%,Parsed unit number of Voter File Mailing Address
+xpg_act_int_dog_owners,20647,11%,Indicates the family composition of the household
+xpg_act_int_do_it_yourselfers,20647,11%,Indicates the number of adults 18 years or older within the household
+xpg_act_int_eats_at_family_restaurants,20647,11%,Indicates the known presence of children age 0-17 in the household
+xpg_act_int_eats_at_fast_food_restaurants,20647,11%,Indicates the number of children age 0-17 living within the household
+xpg_act_int_e_book_reader,20647,11%,Indicates if the individual is a homeowner
+xpg_act_int_fishing,20647,11%,Indicates the type of mortgage rate on home mortgage
+xpg_act_int_fitness_enthusiast,20647,11%,Indicates the type of home mortgage loan
+xpg_act_int_gourmet_cooking,20647,11%,Indicates if the mortgage is a new mortgage or a refinanced home mortgage
+xpg_act_int_healthy_living,20647,11%,Estimated Home Purchase Price in $1000 increments
+xpg_act_int_home_improvement_spenders,20647,11%,Estimated mortgage loan amount in $1000 increments
+xpg_act_int_hunting_enthusiasts,20647,11%,Indicates the month in which home was purchased
+xpg_act_int_listens_to_80s_music,20647,11%,Indicates the year in which the home was purchased
+xpg_act_int_listens_to_alternative_music,20647,11%,Estimated monthly mortgage loan payment amount.  Amount is based on the total mortgage amount spread out over 360 months.
+xpg_act_int_listens_to_christian_music,20647,11%,Estimated current mortgage balance amount in $1000 increments
+xpg_act_int_listens_to_classical_music,20647,11%,Indicates the ratio of mortgage to home value
+xpg_act_int_listens_to_country_music,20647,11%,Indicates the length of residence at current address in years
+xpg_act_int_listens_to_hip_hop_music,20647,11%,Estimated home value in $1000 increments
+xpg_act_int_listens_to_jazz_music,20647,11%,Estimated amount of equity held in home in $1000 increments
+xpg_act_int_listens_to_music,20647,11%,Indicates the Loan to Value range of the home mortgage
+xpg_act_int_listens_to_oldies_music,20647,11%,Indicates the estimated home value range
+xpg_act_int_listens_to_pop_music,20647,11%,Indicates the estimated income amount of a household in $1000 increments
+xpg_act_int_listens_to_rock_music,20647,11%,Indicates the estimated household income range
+xpg_act_int_mlb_enthusiast,20647,11%,"Indicates the estimated household net worth.  Indicates range of household's net worth using income, asset, life stage and other financial model components."
+xpg_act_int_music_download,20647,11%,"Amount in $1000 increments of the amount of estimated discretionary income for a particular household annually. Discretionary Income is the amount of cash a household has after paying for essentials such as food, electricity, taxes, education and mortgage."
+xpg_act_int_music_streaming,20647,11%,"Household-level ranking within a geographic area of the annual amount of discretionary income of the household. Ranking of the amount of cash a household has after paying for essentials such as food, electricity, taxes, education and mortgage. 1 - Highest 10 - lowest"
+xpg_act_int_nascar_enthusiast,20647,11%,Household-level ranking within a geographic area from 1 - 100 (100 = highest) of how sensitive the household is to the recession
+xpg_act_int_nba_enthusiast,20647,11%,Household-level ranking within a geographic area of how sensitive the household is to the recession
+xpg_act_int_nfl_enthusiast,20647,11%,"Decile ranking of household's propensity to invest highly in automobiles (1 = most likely, 10 = least likely)"
+xpg_act_int_nhl_enthusiast,20647,11%,Indicates if a member of the household is a business owner
+xpg_act_int_on_a_diet,20647,11%,Indicates the size of the business owned
+xpg_act_int_outdoor_enthusiast,20647,11%,Indicates the primary business function
+xpg_act_int_pet_enthusiast,20647,11%,Indicates the annual average revenue of the business owned
+xpg_act_int_pga_tour_enthusiast,20647,11%,Indicates the highest level of education completed by the individual. Expressed as a code.
+xpg_act_int_photography,20647,11%,Indicates the occupation type of the individual.  Expressed as a code.
+xpg_act_int_play_golf,20647,11%,"Indicates the likelihood that the household actively participates in a ""personal voice"" social networking site such as a blog or Twitter. A value of 1 represents those most likely and 20 represents those least likely."
+xpg_act_int_plays_hockey,20647,11%,Indicates the likelihood that the household actively participates in a professional social networking site such as LinkedIn. A value of 1 represents those most likely and 20 represents those least likely.
+xpg_act_int_plays_soccer,20647,11%,Indicates the likelihood that the household actively participates in purely social networking sites such as Facebook. A value of 1 represents those most likely and 20 represents those least likely.
+xpg_act_int_plays_tennis,20647,11%,Indicates the likelihood that the household actively participates in one or more types of social networks. A value of 1 represents those most likely and 20 represents those least likely.
+xpg_act_int_political_viewing_on_tv_conservative,20647,11%,Indicates that the person has purchased a hunting license
+xpg_act_int_political_viewing_on_tv_liberal,20647,11%,Indicates that the person has purchased a fishing license
+xpg_act_int_political_viewing_on_tv_liberal_comedy,20647,11%,State where the contribution record was sourced
+xpg_act_int_scrapbooking,20647,11%,Indicates the first available date that the contributor made a contribution
+xpg_act_int_snow_sports,20647,11%,Indicates the most recent date that the contributor made a contribution
+xpg_act_int_sports_enthusiast,20647,11%,Indicates the total number of contributions made by the contributor.
+xpg_act_int_sweepstakes_lottery,21684,12%,Indicates the total amount of all contributions made by the contributor
+xpg_act_int_video_gamer,20647,11%,Indicates the average contribution amount made by the contributor
+xpg_act_int_weight_conscious,20647,11%,Indicates a contribution to a pro environment organization
+xpg_act_int_wine_lovers,21684,12%,Indicates a contribution to a pro business organization
+xpg_act_int_zoo_visitors,20647,11%,Indicates a contribution to a pro gun organization
+xpg_buyer_coupon_users,20647,11%,Indicates a contribution to a labor organization
+xpg_buyer_high_end_spirit_drinkers,21684,12%,Indicates a contribution to a trial attorneys organization
+xpg_buyer_laptop_owners,20647,11%,Indicates a contribution to a pro police or firefighter organization
+xpg_buyer_loyalty_card_user,20647,11%,Indicates a contribution to a progressive organization
+xpg_buyer_luxury_home_goods_store_shopper,20647,11%,Indicates a contribution to a conservative organization
+xpg_buyer_luxury_store_shoppers,20647,11%,Indicates a contribution to a pro LGBTQ organization
+xpg_buyer_non_prestige_makeup_brand_user,21684,12%,Indicates a contribution to a anti LGBTQ organization
+xpg_buyer_presence_of_automobile,20647,11%,Indicates a contribution to a pro choice organization
+xpg_buyer_prestige_makeup_user,21684,12%,Indicates a contribution to a anti choice organization
+xpg_buyer_security_system_owners,20647,11%,Indicates a contribution to a healthcare organization
+xpg_buyer_supercenter_shoppers,20647,11%,Indicates a contribution to an energy organization
+xpg_buyer_tablet_owners,20647,11%,Indicates a contribution to a Democratic candidate
+xpg_buyer_warehouse_club_members,20647,11%,Indicates a contribution to a Republican candidate
+xpg_buyer_young_adult_clothing_shoppers,20647,11%,Indicates a contribution to a female candidate
+xpg_memberships_aarp_members,21684,12%,Indicates if contributions have been made to multiple organizations
+xpg_memberships_union_member,20647,11%,Indicates if contributions have been made to multiple candidates
+xpg_invest_active_investor,20647,11%,"Blank, Deprecated"
+xpg_invest_brokerage_account_owner,20647,11%,"Blank, Deprecated"
+xpg_invest_have_a_retirement_financial_plan,20647,11%,"Blank, Deprecated"
+xpg_invest_mutual_fund_investor,20647,11%,"Blank, Deprecated"
+xpg_invest_participate_in_online_trading,20647,11%,"Blank, Deprecated"
+xpg_lifestyle_frequent_flyer_program_member,20647,11%,"Blank, Deprecated"
+xpg_lifestyle_have_grandchildren,21684,12%,"Blank, Deprecated"
+xpg_lifestyle_high_frequency_business_traveler,21684,12%,"Blank, Deprecated"
+xpg_lifestyle_high_frequency_cruise_enthusiast,20647,11%,Contributors Address Zip Code
+xpg_lifestyle_high_frequency_domestic_vacationer,20647,11%,Indicates the total number of contributions made in that contributors zip code
+xpg_lifestyle_high_frequency_foreign_vacationer,20647,11%,Indicates the total dollar amount of all contributions made in that contributors zip code
+xpg_lifestyle_hotel_guest_loyalty_program,20647,11%,Indicates the average dollar amount of all contributions made in that contributors zip code
+xpg_lifestyle_interest_in_religion,20647,11%,The date of the first contribution made in that contributors zip code
+xpg_lifestyle_life_insurance_policy_holders,20647,11%,The date of the last contribution made in that contributors zip code
+xpg_lifestyle_medical_insurance_policy_holders,20647,11%,Indicates the dollar amount of contributions made to Cooperative PACs in that contributors zip code
+xpg_lifestyle_medicare_policy_holders,21684,12%,Indicates the dollar amount of contributions made to Corporations in that contributors zip code
+xpg_lifestyle_military_active,20647,11%,Indicates the dollar amount of contributions made to Delegate Committees in that contributors zip code
+xpg_lifestyle_military_inactive,20647,11%,Indicates the dollar amount of contributions made to Campaign Committees for candidates for the House of Representatives in that contributors zip code
+xpg_working_couples_dual_income,20647,11%,Indicates the dollar amount of contributions made to Independent Expenditure Committees (other than PACs) in that contributors zip code
+xpg_hobbies_gardening,20647,11%,Indicates the dollar amount of contributions made to Labor Organizations in that contributors zip code
+xpg_donor_contributes_by_volunteering,20647,11%,Indicates the dollar amount of contributions made to Membership Organizations in that contributors zip code
+xpg_donor_contributes_to_arts_culture_charities,21684,12%,Indicates the dollar amount of contributions made to National Party Organizations in that contributors zip code
+xpg_donor_contributes_to_charities,21684,12%,Indicates the dollar amount of contributions made to Non-Qualified Party Committees in that contributors zip code
+xpg_donor_contributes_to_education_charities,21684,12%,Indicates the dollar amount of contributions made to Campaign Committees for candidates for President in that contributors zip code
+xpg_donor_contributes_to_health_charities,21684,12%,Indicates the dollar amount of contributions made to Qualified Party Committees in that contributors zip code
+xpg_donor_contributes_to_political_charities,21684,12%,Indicates the dollar amount of contributions made to Campaign Committees for candidates for Senate in that contributors zip code
+xpg_donor_contributes_to_private_foundations,21684,12%,Indicates the dollar amount of contributions made to Trade Associations in that contributors zip code
+xpg_financial_corporate_credit_card_user,21684,12%,Indicates the dollar amount of contributions made to Democrats in that contributors zip code
+xpg_financial_credit_card_user,20647,11%,Indicates the dollar amount of contributions made to Other Parties in that contributors zip code
+xpg_financial_debit_card_user,20647,11%,Indicates the dollar amount of contributions made to Republicans in that contributors zip code
+xpg_financial_major_credit_card_user,20647,11%,Indicates the dollar amount of contributions made to Unaffiliated candidates in that contributors zip code
+xpg_financial_premium_credit_card_user,20647,11%,Indicates the total number of contributions made by the contributor
+xpg_financial_store_credit_card_user,20647,11%,Percentage that shows the individual's total number of contributions compared  to the total number of contributions in their zip code
+xpg_technology_adoption,27458,15%,Indicates the total dollar amount of all contributions made by the contributor
+xpg_email_engagement,27458,15%,Percentage that shows the individual's total contribution amount compared  to the total contribution amount of their zip code
+xpg_tt_decisionstyle_savvy_researchers,20647,11%,The date of the first contribution made by the contributor
+xpg_tt_decisionstyle_organic_and_natural,20647,11%,The date of the last contribution made by the contributor
+xpg_tt_decisionstyle_brand_loyalists,20647,11%,Indicates the dollar amount of contributions made to Cooperative PACs by the contributor
+xpg_tt_decisionstyle_trendsetters,20647,11%,Indicates the dollar amount of contributions made to Corporations  by the contributor
+xpg_tt_decisionstyle_deal_seeker,20647,11%,Indicates the dollar amount of contributions made to Delegate Committees by the contributor
+xpg_tt_decisionstyle_recreational_shoppers,20647,11%,Indicates the dollar amount of contributions made to Campaign Committees for candidates for the House of Representatives by the contributor
+xpg_tt_decisionstyle_quality_matters,20647,11%,Indicates the dollar amount of contributions made to Independent Expenditure Committees (other than PACs) by the contributor
+xpg_tt_decisionstyle_in_the_moment_shoppers,20647,11%,Indicates the dollar amount of contributions made to Labor Organizations by the contributor
+xpg_tt_decisionstyle_mainstream_adopters,20647,11%,Indicates the dollar amount of contributions made to Membership Organizations by the contributor
+xpg_tt_decisionstyle_novelty_seekers,20647,11%,Indicates the dollar amount of contributions made to National Party Organizations by the contributor
+xpg_tt_conversion_online_deal_voucher,24877,14%,Indicates the dollar amount of contributions made to Non-Qualified Party Committees by the contributor
+xpg_tt_conversion_discount_supercenters,24877,14%,Indicates the dollar amount of contributions made to Campaign Committees for candidates for President by the contributor
+xpg_tt_conversion_ebid_sites,24877,14%,Indicates the dollar amount of contributions made to Qualified Party Committees by the contributor
+xpg_tt_conversion_etail_only,24877,14%,Indicates the dollar amount of contributions made to Campaign Committees for candidates for Senate by the contributor
+xpg_tt_conversion_mid_high_end_store,24877,14%,Indicates the dollar amount of contributions made to Trade Associations by the contributor
+xpg_tt_conversion_specialty_dept_store,24877,14%,Indicates the dollar amount of contributions made to Democrats by the contributor
+xpg_tt_conversion_specialty_or_boutique,24877,14%,Percentage that shows the individual's contributions to Democrats compared  to the total contributions to Democrats in their zip code
+xpg_tt_conversion_wholesale,24877,14%,Indicates the dollar amount of contributions made to Other Parties by the contributor
+ts_tsmart_partisan_score,0,0%,Percentage that shows the individual's contributions to Other Parties compared  to the total contributions to Other Parties in their zip code
+ts_tsmart_presidential_general_turnout_score,0,0%,Indicates the dollar amount of contributions made to Republicans by the contributor
+ts_tsmart_midterm_general_turnout_score,0,0%,Percentage that shows the individual's contributions to Republicans compared  to the total contributions to Republicans in their zip code
+ts_tsmart_midterm_general_enthusiasm_score,0,0%,Indicates the dollar amount of contributions made to Unaffiliated candidates by the contributor
+ts_tsmart_offyear_general_turnout_score,0,0%,Percentage that shows the individual's contributions to Unaffiliated candidates compared  to the total contributions to Unaffiliated candidates in their zip code
+ts_tsmart_presidential_primary_turnout_score,0,0%,Indicates the average dollar amount of all contributions made  by the contributor
+ts_tsmart_non_presidential_primary_turnout_score,0,0%,Total number of individuals in the household (unique tsmart address)
+ts_tsmart_local_voter_score,1818,1%,Total number of females in the household (unique tsmart address)
+ts_tsmart_teaparty_score,1818,1%,Percentage of females in the household (unique tsmart address)
+ts_tsmart_ideology_score,1818,1%,Total number of males in the household (unique tsmart address)
+ts_tsmart_moral_authority_score,1818,1%,Percentage of males in the household (unique tsmart address)
+ts_tsmart_children_present_score,1818,1%,Total number of people with an unknown gender in the household (unique tsmart address)
+ts_tsmart_college_graduate_score,1818,1%,Percentage of people with an unknown gender in the household (unique tsmart address)
+ts_tsmart_high_school_only_score,1818,1%,Total number of votes cast in the household (unique tsmart address)
+ts_tsmart_income_rank_score,1818,1%,Percentage of registered voters in the household (unique tsmart address)
+ts_tsmart_evangelical_raw_score,1818,1%,Total number of Democratic Primary Election votes cast in the household (unique tsmart address)
+ts_tsmart_prochoice_score,1818,1%,Total number of Republican Primary Election votes cast in the household (unique tsmart address)
+ts_tsmart_path_to_citizen_score,1818,1%,Total number of Primary Election votes cast in the household (unique tsmart address)
+ts_tsmart_climate_change_score,1818,1%,Total number of Democrats in the household (unique tsmart address)
+ts_tsmart_gun_control_score,1818,1%,Total number of Republicans in the household (unique tsmart address)
+ts_tsmart_minimum_wage_score,3017,2%,Average Age of the household (unique tsmart address)
+ts_tsmart_working_class_score,1818,1%,Percentage Age 36-64 in the household (unique tsmart address)
+ts_tsmart_activist_score,1818,1%,Percentage Age 65 Plus in the household (unique tsmart address)
+ts_tsmart_trump_resistance_score,1818,1%,Percentage Age 18-35 in the household (unique tsmart address)
+ts_tsmart_trump_support_score,1818,1%,Percentage Age Unknown in the household (unique tsmart address)
+ts_tsmart_gunowner_score,1818,1%,Number of distinct last names of people in the household (unique tsmart address)
+ts_tsmart_veteran_score,1818,1%,Number of distinct races of people in the household (unique tsmart address)
+ts_tsmart_progressive_tax_score,1818,1%,Number of distinct phone numbers in the household (unique tsmart address)
+ts_tsmart_ideology_enhanced_score,1818,1%,Total number of FEC contributions to Republicans in the household (unique tsmart address)
+ts_tsmart_labor_union_support_score,1818,1%,Total number of FEC contributions to Democrats in the household (unique tsmart address)
+ts_tsmart_urbanicity,49,0%,Total number of votes per person in the household (unique tsmart address)
+ts_tsmart_urbanicity_rank,49,0%,Total number of Primary Election votes per person in the household (unique tsmart address)
+predictwise_authoritarianism_score,10255,6%,Percentage of total Primary Election votes that were Democratic in the household (unique tsmart address)
+predictwise_compassion_score,10255,6%,Percentage of Democrats per total Registered Voters in the household (unique tsmart address)
+predictwise_economic_populism_score,10255,6%,Percentage of Democrats in the household (unique tsmart address)
+predictwise_environmentalism_score,10889,6%,Total number of FEC contributions in the household (unique tsmart address)
+predictwise_free_trade_score,10255,6%,Percentage of Democratic FEC contributions in the household (unique tsmart address)
+predictwise_globalism_score,10255,6%,Percentage of females in the 9-Digit Zip Code
+predictwise_guns_score,10255,6%,Percentage of males in the 9-Digit Zip Code
+predictwise_healthcare_women_score,10255,6%,Percentage of people with an unknown gender in the 9-Digit Zip Code
+predictwise_healthcare_score,10255,6%,Percentage of Age 36-64 in the 9-Digit Zip Code
+predictwise_immigrants_score,10255,6%,Percentage of Age 65 Plus in the 9-Digit Zip Code
+predictwise_military_score,10255,6%,Percentage of Age 18-35 in the 9-Digit Zip Code
+predictwise_populism_score,10255,6%,Percentage of Age Unknown in the 9-Digit Zip Code
+predictwise_poor_score,10255,6%,Percentage of african americans in the 9-Digit Zip Code
+predictwise_presidential_score,19332,11%,Percentage of hispanics in the 9-Digit Zip Code
+predictwise_racial_resentment_score,10255,6%,Total number of FEC contributions to Democrats in the 9-Digit Zip Code
+predictwise_regulation_score,10255,6%,Total number of FEC contributions to Republicans in the 9-Digit Zip Code
+predictwise_religious_freedom_score,10255,6%,Percentage of total Primary Election votes that were Democratic in the 9-Digit Zip Code
+predictwise_taxes_score,10255,6%,Percentage of Registered Voters that are Democrats in the 9-Digit Zip Code
+predictwise_traditionalism_score,10255,6%,Percentage of Democratic FEC contributions in the 9-Digit Zip Code
+predictwise_trust_in_institutions_score,10255,6%,Percentage of likely Catholics in the 5-Digit Zip Code
