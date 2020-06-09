@@ -3,6 +3,7 @@
 library(here)
 library(xgboost)
 library(tidyverse)
+library(scales)
 
 data.file <- "/data/20200406_full_append.csv"
 
@@ -115,6 +116,56 @@ preds <- predict(xgb.1,newdata=score.d)
 
 d <- d %>% 
   mutate(full_xgb_pred = preds)
+
+# Let's measure F1 score with various cutoffs.
+get.rule.performance <- function(data,cutoff=0.5){
+  tp <- sum(data$ce_yn==1 & data$full_xgb_pred >= cutoff)
+  fp <- sum(data$ce_yn==0 & data$full_xgb_pred >= cutoff)
+  
+  tn <- sum(data$ce_yn==0 & data$full_xgb_pred < cutoff)
+  fn <- sum(data$ce_yn==1 & data$full_xgb_pred < cutoff) 
+  
+  precision <- tp/(tp+fp)
+  recall <- tp/(tp+fn)
+  
+  f1 <- 2 * precision * recall / (precision + recall)
+  
+  return(list("precision" = precision,
+              "recall"    = recall,
+              "f1"        = f1))
+  
+}
+
+get.rule.performance(d)
+
+for.plot <- tibble(cutoffs=seq(0.35,0.65,length=20),
+                   prec=0.0,
+                   recall=0.0,
+                   f1=0.0)
+
+for(i in 1:nrow(for.plot)){
+  holder <- get.rule.performance(d,cutoff=for.plot$cutoffs[i])
+  
+  for.plot$prec[i] <- holder$precision
+  for.plot$recall[i] <- holder$recall
+  for.plot$f1[i] <- holder$f1
+
+}
+
+ggplot(for.plot,
+       aes(x=cutoffs,y=f1)) + 
+  geom_point() + 
+  theme_minimal() + 
+  labs(x="Cutoff for Easement Probability",
+       y="F1 Score") + 
+  scale_x_continuous(label=percent) + 
+  scale_y_continuous(label=percent) + 
+  geom_vline(xintercept=0.539) + 
+  geom_label(aes(x=0.575,y=0.125,label=paste0("Best F1: 54%")))
+
+
+
+
 
 # Now copy into our probability list. 
 alex.list.file <- "/data/probability_comparison_alex.csv"
