@@ -18,7 +18,7 @@ simple.glm <- glm(ce_yn ~ scale(vb_voterbase_age) +
                     scale(xpg_homeowner_probability_model) + 
                     scale(ts_tsmart_college_graduate_score),
                   data=d,
-                  family="poisson")
+                  family="binomial")
 # Lots of missing values for second and third
 
 summary(simple.glm)
@@ -36,7 +36,7 @@ anova(simple.glm)
 # 99% single value variables. Any columns with
 # more than 75% missing values isn't going to get included. 
 
-vars.to.include <- c("fid","ce_yn")
+potential.vars.to.include <- c("fid","ce_yn")
 
 for(i in 1:ncol(d)){
   this.col <- names(d)[i]
@@ -51,14 +51,15 @@ for(i in 1:ncol(d)){
     }
     
     if(nrow(uni.vals) > 10){
-      vars.to.include <- c(vars.to.include,
-                           this.col)
+      potential.vars.to.include <- c(potential.vars.to.include,
+                                     this.col)
+      
     } else {
       value.dist <- table(d[,this.col])
       value.dist <- value.dist/sum(value.dist) # Normalize table
       if (median(value.dist) > 0.1){
-        vars.to.include <- c(vars.to.include,
-                             this.col)
+        potential.vars.to.include <- c(potential.vars.to.include,
+                                       this.col)
         
       }
     }
@@ -67,7 +68,13 @@ for(i in 1:ncol(d)){
 }
 
 # Get rid of the seed col duplicates
-vars.to.include <- unique(vars.to.include)
+potential.vars.to.include <- unique(potential.vars.to.include)
+vars.to.exclude <- c("sum_easeme",
+                     "sum_total_a",
+                     "sum_gis_acr",
+                     "vb_tsmart_zip")
+
+vars.to.include <- potential.vars.to.include[!(potential.vars.to.include %in% vars.to.exclude)]
 
 ## Now do some XGBoost. First, get the data ready.
 # Steps
@@ -82,13 +89,13 @@ sample.idx <- c(sample.idx,
                        size=9*length(sample.idx),
                        replace = F))
 
+use.hl.vars <- F
 
-#small.d <- d[sample.idx,vars.to.include]
-small.d <- d[sample.idx,c(logit.vars %>% pull(clean_var),
-                          "ce_yn","fid")]
-
-if(T){
-  # Changes to use hannah's variables. 
+if(!use.hl.vars){
+  small.d <- d[sample.idx,vars.to.include]
+} else {
+  small.d <- d[sample.idx,c(logit.vars %>% pull(clean_var),
+                            "ce_yn","fid")]
   small.d <- small.d %>% 
     mutate(vb_voterbase_registration_status = if_else(
       vb_voterbase_registration_status == "Registered",
@@ -144,8 +151,7 @@ xgb.1 <- xgboost(
   objective = "binary:logistic"
 )
 
-xgb.plot.importance(xgb.1)
-
+xgb.plot.importance(xgb.importance(model=xgb.1))
 
 pred <- predict(xgb.1,data.test.small)
 err <- mean(as.numeric(pred > 0.5) != test.resp) 
@@ -160,4 +166,34 @@ imp_mat <- xgb.importance(colnames(data.train.small),
                           model=xgb.1)
 xgb.plot.importance(imp_mat)
 
+#######################################################################
+## Let's see if we can figure out where the issue is with our test.  ##
+#######################################################################
+
+# Let's do groups of 20 covariates and see if 
+# we can figure out why we're getting perfect fit with Hannah's
+
+col.groups <- sample.int(10,size=ncol(small.d),replace=F)
+
+test.idx <- sample(nrow(small.d),size=ceiling(nrow(small.d)*0.1),repl=F)
+train.idx <- (1:nrow(small.d))[!((1:nrow(small.d)) %in% test.idx)]
+
+data.train.small <- small.d %>% 
+  select(-ce_yn,-fid) %>%
+  slice(train.idx) %>% 
+  data.frame
+
+data.train.small <- xgb.DMatrix(as.matrix(data.train.small),
+                                label=as.numeric(small.d %>% slice(train.idx) %>% pull(ce_yn)))
+
+
+data.test.small <- small.d %>% 
+  select(-ce_yn,-fid) %>% 
+  slice(test.idx) %>% 
+  data.frame
+
+test.resp <- as.numeric(small.d %>% slice(test.idx) %>% pull(ce_yn))
+
+data.test.small <- xgb.DMatrix(as.matrix(data.test.small),
+                               label=test.resp)
 
