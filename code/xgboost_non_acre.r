@@ -1,4 +1,5 @@
-# An attempt at a "cleaner" XG Boost for us to use going forward. 
+# A version of XGBoost *without* the "size of parcel" variables, 
+# just to see what pops. 
 
 library(here)
 library(xgboost)
@@ -47,7 +48,21 @@ potential.vars.to.include <- unique(potential.vars.to.include)
 
 # For the "best possible model, I'll exclude just the obvious ones
 vars.to.exclude <- c("sum_easeme",
-                     "vb_tsmart_zip")
+                     "vb_tsmart_zip",
+                     "vb_tsmart_zip4",
+                     "sum_total_a",
+                     "sum_gis_acr",
+                     "sum_grazin",
+                     "sum_forest",
+                     "sum_non_qua",
+                     "sum_farmsi",
+                     "sum_total_b",
+                     "sum_total_v",
+                     "sum_total_l",                     
+#                     "ts_tsmart_urbanicity_rank",
+                     "sum_irriga",
+                     "sum_wild_ha",
+                     "sum_fallow")
 
 vars.to.include <- potential.vars.to.include[!(potential.vars.to.include %in% vars.to.exclude)]
 
