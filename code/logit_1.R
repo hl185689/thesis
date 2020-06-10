@@ -180,7 +180,4 @@ test.set$fittedvals <- test.final$fitted.values
 
 hist(test.set[test.set$CE_yn == 1, ]$fittedvals)
 
- 
-# When you're done with model fitting, Evaluate model on test set. 
-# I think this is your best measure of model accuracy.
 
