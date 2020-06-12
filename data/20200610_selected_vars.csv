@@ -1,4 +1,17 @@
 varnum,column,num_nulls,field_name,perc_missing,field_desc,in.out,hannah,fa.h,model,Reasoning,Notes
+15,sum_gis_acr,,,,GIS acres,,,,,,
+16,sum_contin,,,,continuous crop acres,,,,,,
+17,sum_fallow,,,,fallow acres,,,,,,
+18,sum_farmsi,,,,farmsite acres,,,,,,
+19,sum_forest,,,,forest acres,,,,,,
+20,sum_grazin,,,,grazing acres,,,,,,
+21,sum_wild_ha,,,,wild hay acres,,,,,,
+22,sum_irriga,,,,irrigated acres,,,,,,
+23,sum_non_qua,,,,nonqual acres,,,,,,
+24,sum_total_a,,,,total acres,,,,,,
+25,sum_total_b,,,,total building value,,,,,,
+26,sum_total_l,,,,total land value,,,,,,
+27,sum_total_v,,,,total value,,,,,,
 42,vb.voterbase_registration_status,0,VoterBase Voter Registration Status,0%,Indicates whether the individual is registered to vote or part of the unregistered voting age population,1,1,,,"binary ""registered"" ""unregistered""",
 45,vb.voterbase_gender,0,VoterBase Gender,0%,"Multi-sourced gender code (voter file, or commercially-appended)",1,1,,,relevant,"need to change to binary. F = 44644, M = 131500, U = 4789"
 79,gsyn.synth_hh_sum_dem_primary_votes_cast_count,0,Synthetics - Total Dem Pri Votes Cast in Household,0%,Total number of Democratic Primary Election votes cast in the household (unique tsmart address),1,1,,,,
