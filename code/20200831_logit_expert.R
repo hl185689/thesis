@@ -7,18 +7,10 @@ library(readr)
 library(lmtest)
 library(car)
 
-# 
-# data.file <- "data/clean dataset 20200824.csv"
-# 
-# df <- read_csv(paste0(here(),data.file)) %>% 
-#   janitor::clean_names()
-# 
-# 
-
 
 df <-read.csv("C:/Users/conor/Desktop/thesis/data/clean dataset 20200824.csv") 
 
-
+table(df$CE_yn)
 #model formulation needs to be in dataframe, not tibble
 df <-  data.frame(df)
 
@@ -452,7 +444,7 @@ vif.df[order(vif.df$vif.m.global.postVIF.),]
 library(MASS)
 
 ?stepAIC
-train.AIC <- stepAIC(m.global.postVIF, direction = "both")
+train.AIC <- stepAIC(m.global.postVIF, direction = "backward")
 #save(train.AIC, file = "C:/Users/conor/Desktop/thesis/data/stepAIC object 20200824.RData")
 train.AIC$anova # this code shows the original and final model
 
@@ -526,17 +518,18 @@ hist(df[df$CE_yn == 1, ]$fittedvals)
 #saving fitted values by FID
 fid.probs <- df[,c("FID", "fittedvals")]
 
-write.csv(fid.probs, file = "C:/Users/conor/Desktop/thesis/data/probability_comparison_hannah.csv", row.names = FALSE)
+head(fid.probs)
+write.csv(fid.probs, file = "C:/Users/conor/Desktop/thesis/data/probability_comparison_hannah2.csv", row.names = FALSE)
 
 #merging files
 
 ja.probs <-read.csv("C:/Users/conor/Desktop/thesis/data/probability_comparison.csv")
-ha.probs <-read.csv("C:/Users/conor/Desktop/thesis/data/probability_comparison_hannah.csv")
+ha.probs <-read.csv("C:/Users/conor/Desktop/thesis/data/probability_comparison_hannah2.csv")
 
 probs.mer <- merge(ja.probs,ha.probs, by = "FID", all = TRUE)
 
 
-write.csv(probs.mer, file = "C:/Users/conor/Desktop/thesis/data/probability_comparison_all.csv", row.names = FALSE)
+write.csv(probs.mer, file = "C:/Users/conor/Desktop/thesis/data/probability_comparison_all2.csv", row.names = FALSE)
 
 
 
