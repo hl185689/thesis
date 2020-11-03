@@ -22,8 +22,11 @@ library(scales)
 # The organization of the Box is kind of a disaster, btw. 
 alex <- read_csv(paste0(here(),"/data/Alex Step 20201020.csv"))
 john <- read_csv(paste0(here(),"/data/John XGBoost 20201020.csv"))
-hannah2 <- read_csv(paste0(here(),"/data/hannah step 2.csv"))
+#hannah2 <- read_csv(paste0(here(),"/data/hannah step 2.csv"))
+hannah2 <- read_csv(paste0(here(),"/data/Hannah step 20201020.csv"))
 combined <- read_csv(paste0(here(),"/data/Combined 20201020.csv"))
+
+
 
 # JC: I'm deleting some group stuff here because I'm 
 # not 100% sure it's implemented correctly. You'd
