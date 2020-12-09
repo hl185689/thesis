@@ -604,6 +604,16 @@ vif.df <- data.frame(name = rownames(data.frame(vif(m.global.postVIF))),
                      vif = data.frame(vif(m.global.postVIF)))  # remove high correlation predictors then re-run
 vif.df[order(vif.df$vif.m.global.postVIF.),]
 
+final.md <- train.set %>% 
+  select(CE_yn, 
+         logGISAcr, 
+           SUM_Fallow, 
+           xpg.truetouch_online_mid_high, 
+           ts.tsmart_activist_score, 
+           ts.tsmart_trump_support_score)
+
+mean(complete.cases(final.md))
+
 
 # Final model
 m.final <-glm(CE_yn ~ logGISAcr + 
