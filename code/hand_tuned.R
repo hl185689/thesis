@@ -385,6 +385,84 @@ ggplot(fit.final %>%
   geom_vline(xintercept = 1,col="gray70")
 
 
+#####################
+# apply on test set #
+#####################
+
+test.final <-glm(CE_yn ~ logGISAcr 
+              + SUM_Fallow
+              + xpg.truetouch_online_mid_high
+              + ts.tsmart_activist_score
+              + ts.tsmart_trump_support_score
+              + ts.tsmart_urbanicity_rank
+              + SUM_Grazin
+              + xpg.donor_contributes_to_political_charities
+              + ts.tsmart_labor_union_support_score
+              + xpg.hobbies_gardening
+              + gsyn.synth_county_sum_fec_contribution_count_democrat, 
+              data=test.set,
+              family = "binomial")
+
+summary(test.final)
+
+test.set$fittedvals <- test.final$fitted.values
+
+
+hist(test.set[test.set$CE_yn == 1, ]$fittedvals) # for ones that are truely ones, 
+                                                 # what does the model say the probability 
+                                                 # that it actually is
+
+####################
+# apply to full df #
+####################
+
+full.final <- glm(CE_yn ~ logGISAcr 
+                  + SUM_Fallow
+                  + xpg.truetouch_online_mid_high
+                  + ts.tsmart_activist_score
+                  + ts.tsmart_trump_support_score
+                  + ts.tsmart_urbanicity_rank
+                  + SUM_Grazin
+                  + xpg.donor_contributes_to_political_charities
+                  + ts.tsmart_labor_union_support_score
+                  + xpg.hobbies_gardening
+                  + gsyn.synth_county_sum_fec_contribution_count_democrat, 
+                  data = df,
+                  family = "binomial")
+
+
+for.desc <- df %>% 
+  select(logGISAcr,
+         SUM_Fallow,
+         xpg.truetouch_online_mid_high,
+         ts.tsmart_activist_score,
+         ts.tsmart_trump_support_score,
+         ts.tsmart_urbanicity_rank,
+         SUM_Grazin,
+         xpg.donor_contributes_to_political_charities,
+         ts.tsmart_labor_union_support_score,
+         xpg.hobbies_gardening,
+         gsyn.synth_county_sum_fec_contribution_count_democrat)
+
+Hmisc::describe(for.desc)
+
+summary(full.final)
+
+df$fittedvals <- full.final$fitted.values
+
+
+hist(df[df$CE_yn == 1, ]$fittedvals)
+
+#saving fitted values by FID
+fid.probs <- df[,c("FID", "fittedvals")]
+
+head(fid.probs)
+         
+# HANNAH, merge hand_tuned values to john+alex probs and create probs for missing
+# FID's by averaging their two probabilities
+# THEN, create new column with average of all three probs (combined probs)
+
+         
 ##########
 # m.global <- glm(CE_yn ~ logGISAcr +
 #                   SUM_Farmsi +
