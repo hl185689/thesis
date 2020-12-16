@@ -296,6 +296,64 @@ anova(m.final,test="Chisq")
 summary(m.final)
 fit.final <- tidy(m.final)
 
+# JC: let's get the ROC curve and do some resampling to test the 
+# model. This new version of tidymodels just came out, so I'm
+# going to test it here. Here's the reference that 
+# I'm using: https://www.tidymodels.org/start/resampling/
+
+library(tidymodels) # Normally this would go up top
+
+set.seed(20201209)
+parcel.split <- initial_split(df, strat=CE_yn)
+
+parcel.train <- training(parcel.split)
+parcel.test <- testing(parcel.split)
+
+nrow(parcel.train)
+nrow(parcel.train)/nrow(df)
+
+nrow(parcel.test)
+nrow(parcel.test)/nrow(df)
+
+# strata handles even splitting on CE_yn. Doesn't have the 
+# overweighting from our original data, though. 
+parcel.train %>% 
+  count(CE_yn) %>% 
+  mutate(prop = n/sum(n))
+
+parcel.test %>% 
+  count(CE_yn) %>% 
+  mutate(prop = n/sum(n))
+
+m.final <-glm(CE_yn ~ logGISAcr 
+              + SUM_Fallow
+              + xpg.truetouch_online_mid_high
+              + ts.tsmart_activist_score
+              + ts.tsmart_trump_support_score
+              + ts.tsmart_urbanicity_rank
+              + SUM_Grazin
+              + xpg.donor_contributes_to_political_charities
+              + ts.tsmart_labor_union_support_score
+              + xpg.hobbies_gardening
+              + gsyn.synth_county_sum_fec_contribution_count_democrat, 
+              data=parcel.train, 
+              family = "binomial") 
+
+glm.test.pred <- 
+  tibble(pred=predict(m.final, parcel.test,type="response")) %>% 
+  bind_cols(parcel.test %>% 
+              select(CE_yn) %>% 
+              mutate(CE_yn = factor(CE_yn,
+                                    levels=c(1,0), # ROC expects positive as first level
+                                    labels=c("CE","No CE"))))
+
+glm.test.pred %>% 
+  roc_auc(truth=CE_yn,pred)
+
+roc_curve(glm.test.pred,pred,truth=CE_yn) %>% autoplot()
+
+
+
 # # ?anova.glm
 # 1-pchisq(q=622.41,df=1)
 # 1-pchisq(q=9.74,df=1)
@@ -314,7 +372,8 @@ ggplot(fit.final,
   geom_point() + 
   geom_errorbarh(aes(xmin=lb,xmax=ub,y=term),height=0.1) + 
   theme_gray() + 
-  labs(x="Odds Multiplier",y="Model Term")
+  labs(x="Odds Multiplier",y="Model Term") 
+
 
 ggplot(fit.final %>% 
          filter(term!="logGISAcr",term!="(Intercept)"),
