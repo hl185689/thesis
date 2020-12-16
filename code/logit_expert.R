@@ -648,6 +648,7 @@ ggplot(fit.final %>%
   geom_vline(xintercept = 1,col="gray70")
 
 
+############################################################################
 ?stepAIC
 train.AIC <- stepAIC(m.global.postVIF, direction = "backward")
 #save(train.AIC, file = "C:/Users/conor/Desktop/thesis/data/stepAIC object 20200824.RData")
