@@ -25,6 +25,7 @@ final.md <- df %>%
          ts.tsmart_labor_union_support_score,
          xpg.hobbies_gardening,
          gsyn.synth_county_sum_fec_contribution_count_democrat)
+
 mean(complete.cases(final.md))
 
 
@@ -216,6 +217,9 @@ full.probs <-read.csv("C:/Users/conor/Desktop/thesis/data/probability_comparison
 probs.mer.act <- merge(full.probs,ce.actual, by = "FID", all = TRUE)
 
 write.csv(probs.mer.act, file = "C:/Users/conor/Desktop/thesis/data/probability_comparison_ALL.csv", row.names = FALSE)
+
+# JC: Going to try my own to see if I can figure out why 
+# Hannah is getting such a strange looking ROC. 
 
 
 
