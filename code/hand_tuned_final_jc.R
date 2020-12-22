@@ -64,7 +64,15 @@ for.output <- ja.probs %>%
                      hand_tuned),
             by="fid")
 
+for.output <- for.output %>% 
+  mutate(hand_tuned = if_else(is.na(hand_tuned),
+                              0.5*step_wise_estimate + 0.5*full_xgb_pred,
+                              hand_tuned))
+
+
+
 
 Hmisc::describe(for.output)
-# Tons of missing in ce_yn and hand_tuned. Hannah, what's up with that?
 
+write_csv(for.output,
+          paste0(here(),"/data/probability_comparison_all_no_na_jc.csv"))

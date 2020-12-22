@@ -6,12 +6,10 @@ library(scales)
 library(here)
 library(pROC)
 
-d <- read_csv(paste0(here(),"/data/probability_comparison_all_no_na.csv"))
+d <- read_csv(paste0(here(),"/data/probability_comparison_all_no_na_jc.csv"))
 
 d <- d %>% 
-  rename(fid = FID,
-         hand_logit = fittedvals)
-
+  mutate(combined = (step_wise_estimate + full_xgb_pred + hand_tuned)/3)
 
 # Build the rocs one at a time, then combine them for the final plot
 step.roc <- roc(data=d,
@@ -24,7 +22,7 @@ xgb.roc <- roc(data=d,
 
 hand.roc <- roc(data=d,
                 response=ce_yn,
-                predictor=hand_logit)
+                predictor=hand_tuned)
 
 combined.roc <- roc(data=d,
                     response=ce_yn,
