@@ -37,35 +37,46 @@ anova(simple.glm)
 # more than 75% missing values isn't going to get included. 
 
 potential.vars.to.include <- c("fid","ce_yn")
+var.decisions <- tibble(var = names(d),
+                        reason="predictor")
 
 for(i in 1:ncol(d)){
   this.col <- names(d)[i]
 
   if(is.numeric(d[,this.col] %>% pull)){ # weird `pull` to extract col
     uni.vals <- unique(d[,this.col])
-    
     frac.missing <- mean(is.na(d[,this.col] %>% pull))
     
-    if(frac.missing > 0.75 || grepl("id",this.col)){
+    if(frac.missing > 0.75 || grepl("_id",this.col)){
+      var.decisions$reason[var.decisions$var==this.col] <- "Missing/ID"
       next
     }
     
     if(nrow(uni.vals) > 10){
       potential.vars.to.include <- c(potential.vars.to.include,
                                      this.col)
-      
+      var.decisions$reason[var.decisions$var==this.col] <- "Predictor"
     } else {
+
       value.dist <- table(d[,this.col])
       value.dist <- value.dist/sum(value.dist) # Normalize table
       if (median(value.dist) > 0.1){
         potential.vars.to.include <- c(potential.vars.to.include,
                                        this.col)
+        var.decisions$reason[var.decisions$var==this.col] <- "Predictor"
         
+      } else {
+        var.decisions$reason[var.decisions$var==this.col] <- "<10 + Skewed"
       }
     }
     
+  } else {
+    var.decisions$reason[var.decisions$var==this.col] <- "non-numeric"
   }
 }
+
+var.decisions$reason[var.decisions$var=="fid"] <- "ID"
+var.decisions$reason[var.decisions$var=="ce_yn"] <- "response"
 
 # Get rid of the seed col duplicates
 potential.vars.to.include <- unique(potential.vars.to.include)
